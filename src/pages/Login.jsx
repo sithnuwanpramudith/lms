@@ -59,22 +59,22 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4 sm:p-6 relative overflow-hidden">
       {/* Animated Background Elements */}
-      <div className="absolute top-[-20%] left-[-20%] w-[60%] h-[60%] bg-primary-600/10 blur-[150px] rounded-full animate-pulse"></div>
-      <div className="absolute bottom-[-20%] right-[-20%] w-[60%] h-[60%] bg-accent/5 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-[-20%] left-[-20%] w-[80%] sm:w-[60%] h-[80%] sm:h-[60%] bg-primary-600/10 blur-[100px] sm:blur-[150px] rounded-full animate-pulse"></div>
+      <div className="absolute bottom-[-20%] right-[-20%] w-[80%] sm:w-[60%] h-[80%] sm:h-[60%] bg-accent/5 blur-[100px] sm:blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
 
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="glass-card w-full max-w-lg p-10 relative z-10 border-white/5 shadow-2xl"
+        className="glass-card w-full max-w-lg p-6 sm:p-10 relative z-10 border-white/5 shadow-2xl"
       >
-        <div className="text-center mb-10">
-          <div className="w-16 h-16 bg-blue-500/10 rounded-2xl mx-auto flex items-center justify-center border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.3)] mb-4">
-            <Shield className="text-blue-400" size={32} />
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-blue-500/10 rounded-2xl mx-auto flex items-center justify-center border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.3)] mb-4">
+            <Shield className="text-blue-400" size={28} />
           </div>
-          <h1 className="text-3xl font-bold mb-2 tracking-tight">Welcome Back</h1>
-          <p className="text-slate-400">Sign in to manage your leave requests</p>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2 tracking-tight">Welcome Back</h1>
+          <p className="text-sm sm:text-base text-slate-400">Sign in to manage your leave requests</p>
         </div>
 
         {error && (
@@ -87,7 +87,7 @@ const Login = () => {
           </motion.div>
         )}
 
-        <form className="space-y-6" onSubmit={handleLogin} autoComplete="off">
+        <form className="space-y-5 sm:space-y-6" onSubmit={handleLogin} autoComplete="off">
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-400 ml-1">Email Address</label>
             <div className="relative">
@@ -95,7 +95,7 @@ const Login = () => {
               <input 
                 type="email" 
                 placeholder="name@company.com" 
-                className="input-field pl-12 border-white/5"
+                className="input-field pl-12 border-white/5 text-sm sm:text-base"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -111,7 +111,7 @@ const Login = () => {
               <input 
                 type={showPassword ? 'text' : 'password'} 
                 placeholder="••••••••" 
-                className="input-field pl-12 pr-12 border-white/5"
+                className="input-field pl-12 pr-12 border-white/5 text-sm sm:text-base"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -127,7 +127,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-sm px-1">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-sm px-1 gap-3 sm:gap-1">
             <label className="flex items-center gap-2 cursor-pointer group text-slate-400 hover:text-slate-200 transition-colors">
               <input type="checkbox" className="w-4 h-4 rounded border-white/10 bg-white/5 accent-primary-500" />
               <span>Remember me</span>
@@ -138,21 +138,21 @@ const Login = () => {
           <button 
             type="submit"
             disabled={isLoading}
-            className="primary-button w-full justify-center py-4 text-lg font-bold mb-4"
+            className="primary-button w-full justify-center py-3 sm:py-4 text-base sm:text-lg font-bold"
           >
             {loadingRole === 'form' ? 'Signing in...' : 'Sign In'} <ChevronRight size={20} className="ml-2" />
           </button>
 
-          <div className="relative py-4">
+          <div className="relative py-2 sm:py-4">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-white/5"></div>
             </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-slate-900 px-2 text-slate-500">Or Quick Login</span>
+            <div className="relative flex justify-center text-[10px] sm:text-xs uppercase">
+              <span className="bg-slate-950 px-2 text-slate-500">Or Quick Login</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <button 
               type="button"
               onClick={() => handleDemoLogin('Admin')}
@@ -191,7 +191,7 @@ const Login = () => {
           </div>
 
           <div className="text-center pt-2">
-            <p className="text-sm text-slate-500">
+            <p className="text-xs sm:text-sm text-slate-500">
               Don't have an account? <a href="#" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">Contact HR</a>
             </p>
           </div>
