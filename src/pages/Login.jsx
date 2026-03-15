@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 import { Shield, Lock, Mail, ChevronRight, Eye, EyeOff } from 'lucide-react';
+import logo from '../assets/logo_transparent.png';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -70,8 +71,15 @@ const Login = () => {
         className="glass-card w-full max-w-lg p-6 sm:p-10 relative z-10 border-white/5 shadow-2xl"
       >
         <div className="text-center mb-8 sm:mb-10">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-blue-500/10 rounded-2xl mx-auto flex items-center justify-center border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.3)] mb-4">
-            <Shield className="text-blue-400" size={28} />
+          <div className="mb-6">
+            <img 
+              src={logo} 
+              alt="Southern Province Logo" 
+              className="w-24 h-24 mx-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            />
+            <h2 className="text-white font-bold mt-4 tracking-widest text-sm sm:text-base">
+              CHIEF MINISTRY - SOUTHERN PROVINCE
+            </h2>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold mb-2 tracking-tight">Welcome Back</h1>
           <p className="text-sm sm:text-base text-slate-400">Sign in to manage your leave requests</p>

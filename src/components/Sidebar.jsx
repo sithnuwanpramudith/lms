@@ -6,6 +6,7 @@ import { LayoutDashboard, Users, Calendar, BarChart3, Settings,
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
+import logo from '../assets/logo_transparent.png';
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -52,15 +53,34 @@ const Sidebar = () => {
       animate={{ width: isCollapsed ? '80px' : '280px' }}
       className="h-screen bg-slate-900/50 backdrop-blur-xl border-r border-white/10 flex flex-col relative z-50 transition-all duration-300"
     >
-      <div className="p-6 flex items-center justify-between">
+      <div className="p-6 flex items-center justify-between min-h-[120px]">
         {!isCollapsed && (
-          <motion.h1 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent"
-          >
-            LMS Premium
-          </motion.h1>
+          <div className="flex items-center gap-3">
+            <img 
+              src={logo} 
+              alt="Logo" 
+              className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
+            />
+            <div className="flex flex-col">
+              <motion.h1 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-[10px] font-bold text-slate-400 tracking-wider leading-none mb-1"
+              >
+                CHIEF MINISTRY
+              </motion.h1>
+              <motion.h1 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-xs font-black text-white tracking-tight leading-none"
+              >
+                SOUTHERN PROVINCE
+              </motion.h1>
+              <div className="mt-2 text-[9px] font-medium px-2 py-0.5 bg-primary-500/10 text-primary-400 rounded-full border border-primary-500/20 w-fit">
+                Leave Management System
+              </div>
+            </div>
+          </div>
         )}
         <button 
           onClick={() => setIsCollapsed(!isCollapsed)}
